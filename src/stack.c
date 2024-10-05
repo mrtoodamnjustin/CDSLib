@@ -60,11 +60,10 @@ void pushStack(Stack *stack, void *element)
   stack->data[stack->size++] = newElement;
 }
 
-void popStack(Stack *stack)
+void *popStack(Stack *stack)
 {
   void *top = stack->data[stack->size - 1];
 
-  free(top);
   stack->size--;
 
   if (stack->size < stack->capacity / 4)
@@ -81,6 +80,8 @@ void popStack(Stack *stack)
     stack->data = temp;
     stack->capacity = newCapacity;
   }
+
+  return top;
 }
 
 void clearStack(Stack *stack)

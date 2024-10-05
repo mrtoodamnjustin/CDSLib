@@ -12,7 +12,7 @@ typedef struct Stack
 Stack *createStack(size_t element_size);
 void destroyStack(Stack *stack);
 void pushStack(Stack *stack, void *element);
-void popStack(Stack *stack);
+void *popStack(Stack *stack);
 void clearStack(Stack *stack);
 void *topStack(Stack *stack);
 size_t sizeStack(Stack *stack);
