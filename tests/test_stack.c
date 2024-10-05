@@ -23,8 +23,10 @@ int main(int argc, char **argv)
   while (!isEmptyStack(stack))
   {
     printf("Current number of elements: %d\n", sizeStack(stack));
-    printf("Popped %d\n\n", *(int *)topStack(stack));
-    popStack(stack);
+
+    int *popped = popStack(stack);
+    printf("Popped %d\n\n", *popped);
+    free(popped);
   }
 
   printf("No elements are left!\n");
