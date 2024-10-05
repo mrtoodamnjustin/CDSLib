@@ -1,31 +1,34 @@
-CC=gcc
-CFLAGS=-Iinclude -Wall -Wextra
+CC = gcc
+CFLAGS = -Iinclude -Wall -Wextra
 
-BDIR = ./build
-ODIR = $(BDIR)/objs
+LIBDIR = ./lib
+BDIR = ./bin
+ODIR = $(BDIR)/obj
 
-SRC=$(wildcard src/*.c)
-OBJ=$(SRC:src/%.c=$(ODIR)/%.o)
-TARGET= $(BDIR)/advanced_data_structures
+SRC = $(wildcard src/*.c)
+OBJ = $(SRC:src/%.c=$(ODIR)/%.o)
+TARGET = $(LIBDIR)/libdatastructures.dll
 
-all: $(BIN) $(ODIR) $(TARGET)
+all: $(BIN) $(ODIR) $(LIBDIR) $(TARGET)
 
-# executable rule
+# library rule
 $(TARGET): $(OBJ)
-	$(CC) -o $@ $^
+	$(CC) -shared -o $@ $^
 
 # objs rule
 $(ODIR)/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BDIR):
-	@if not exist "$(BDIR)" ( mkdir "$(BDIR)")
+	if not exist "$(BDIR)" ( mkdir "$(BDIR)")
 
 $(ODIR):
-	@if not exist "$(ODIR)" ( mkdir "$(ODIR)")
+	if not exist "$(ODIR)" ( mkdir "$(ODIR)")
+
+$(LIBDIR):
+	if not exist "$(LIBDIR)" ( mkdir "$(LIBDIR)")
 
 .PHONY: clean
 clean:
-	@if exist "$(TARGET)" ( rm "$(TARGET)")
-	@if exist "$(ODIR)" ( rmdir /S /Q "$(ODIR)")
-	@if exist "$(BDIR)" ( rmdir /S /Q "$(BDIR)")
+	-rmdir /s /q "./bin"
+	-rmdir /s /q "./lib"
