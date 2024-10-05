@@ -11,7 +11,7 @@ typedef struct Stack
 
 /* Allocate space for the stack, and
   prepares it to be used
-   Returns a pointer to the stack */
+  Returns a pointer to the stack */
 Stack *createStack(size_t element_size);
 
 /* Frees all memory occupied by the stack */
