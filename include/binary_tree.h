@@ -9,4 +9,4 @@ typedef struct btNode
   struct btNode *right;
 } btNode;
 
-btNode *createNode(void *data, size_t element_size);
+btNode *createNode(const void *data, size_t element_size);

@@ -1,5 +1,6 @@
 #include "binary_tree.h"
 
+#include <stdlib.h>
 #include <string.h>
 
 btNode *createNode(const void *data, size_t element_size)
@@ -8,5 +9,7 @@ btNode *createNode(const void *data, size_t element_size)
 
   node->data = malloc(sizeof(element_size));
 
-  memcpy(data, node->data, element_size);
+  memcpy(node->data, data, element_size);
+
+  return node;
 }
