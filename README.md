@@ -14,12 +14,12 @@ This personal project aims to implement several data structures in C, including 
 
 - Linked List
 - Stack
+- Queue
 
 ### To Be Implemented
 
 - Graph
 - Hashmap
-- Queue
 - Tree
 - Binary Tree
 
