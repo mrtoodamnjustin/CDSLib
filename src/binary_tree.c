@@ -11,5 +11,8 @@ btNode *createNode(const void *data, size_t element_size)
 
   memcpy(node->data, data, element_size);
 
+  node->left = NULL;
+  node->right = NULL;
+
   return node;
 }
