@@ -15,13 +15,13 @@ This personal project aims to implement several data structures in C, including 
 - Linked List
 - Stack
 - Queue
+- Binary Tree
 
 ### To Be Implemented
 
 - Graph
 - Hashmap
 - Tree
-- Binary Tree
 
 ## Building
 
