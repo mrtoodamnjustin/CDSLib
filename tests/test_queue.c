@@ -11,20 +11,20 @@ int main(int argc, char **argv)
     return 1;
   }
 
-  Queue *queue = createQueue(sizeof(char *));
+  Queue *queue = queue_create(sizeof(char *));
 
   for (int i = 1; i < argc; i++)
   {
-    pushQueue(queue, &(int){atoi(argv[i])});
+    queue_push(queue, &(int){atoi(argv[i])});
   }
 
   printf("Lets flush your queue!\n");
 
-  while (!isEmptyQueue(queue))
+  while (!queue_is_empty(queue))
   {
-    printf("Current size of queue: %d\n", sizeQueue(queue));
+    printf("Current size of queue: %d\n", queue_size(queue));
 
-    int *popped = (int *)popQueue(queue);
+    int *popped = (int *)queue_pop(queue);
     printf("Popped %d\n\n", *popped);
     free(popped);
   }

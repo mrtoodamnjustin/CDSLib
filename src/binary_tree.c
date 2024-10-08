@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-btNode *createNode(const void *data, size_t element_size)
+btNode *bt_create_node(const void *data, size_t element_size)
 {
   btNode *node = malloc(sizeof(btNode));
 

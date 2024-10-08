@@ -12,7 +12,7 @@
 //   size_t element_size;
 // } Stack;
 
-Stack *createStack(size_t element_size)
+Stack *stack_create(size_t element_size)
 {
   Stack *result = malloc(sizeof(Stack));
   result->data = malloc(0);
@@ -23,7 +23,7 @@ Stack *createStack(size_t element_size)
   return result;
 }
 
-void destroyStack(Stack *stack)
+void stack_destroy(Stack *stack)
 {
   for (size_t i = 0; i < stack->size; i++)
   {
@@ -34,7 +34,7 @@ void destroyStack(Stack *stack)
   free(stack);
 }
 
-void pushStack(Stack *stack, void *element)
+void stack_push(Stack *stack, void *element)
 {
   void *newElement = malloc(stack->element_size);
 
@@ -60,7 +60,7 @@ void pushStack(Stack *stack, void *element)
   stack->data[stack->size++] = newElement;
 }
 
-void *popStack(Stack *stack)
+void *stack_pop(Stack *stack)
 {
   void *top = stack->data[stack->size - 1];
 
@@ -84,7 +84,7 @@ void *popStack(Stack *stack)
   return top;
 }
 
-void clearStack(Stack *stack)
+void stack_clear(Stack *stack)
 {
   for (size_t i = 0; i < stack->size; i++)
   {
@@ -96,17 +96,17 @@ void clearStack(Stack *stack)
   stack->capacity = 0;
 }
 
-void *topStack(Stack *stack)
+void *stack_top(Stack *stack)
 {
   return stack->data[stack->size - 1];
 }
 
-size_t sizeStack(Stack *stack)
+size_t stack_size(Stack *stack)
 {
   return stack->size;
 }
 
-int isEmptyStack(Stack *stack)
+int stack_is_empty(Stack *stack)
 {
   return stack->size == 0;
 }

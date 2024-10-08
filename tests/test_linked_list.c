@@ -3,7 +3,7 @@
 
 #include "linked_list.h"
 
-void printInt(void *num)
+void print_int(void *num)
 {
   printf("%d", *(int *)num);
 }
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
   int nodes = argc - 1;
 
-  Node *head = createLinkedList(nodes, sizeof(int));
+  Node *head = ll_create(nodes, sizeof(int));
 
   Node *currentNode = head;
   for (int i = 0; i < nodes; i++)
@@ -27,9 +27,9 @@ int main(int argc, char **argv)
     currentNode = currentNode->next;
   }
 
-  displayLinkedList(head, &printInt, " -> ");
+  ll_display(head, &print_int, " -> ");
 
-  freeLinkedList(head);
+  ll_free(head);
 
   return 0;
 }

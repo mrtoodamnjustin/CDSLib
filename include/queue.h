@@ -10,9 +10,9 @@ typedef struct Queue
   size_t capacity;
 } Queue;
 
-Queue *createQueue(size_t element_size);
-void pushQueue(Queue *queue, void *element);
-void *popQueue(Queue *queue);
-void clearQueue(Queue *queue);
-int isEmptyQueue(Queue *queue);
-size_t sizeQueue(Queue *queue);
+Queue *queue_create(size_t element_size);
+void queue_push(Queue *queue, void *element);
+void *queue_pop(Queue *queue);
+void queue_clear(Queue *queue);
+int queue_is_empty(Queue *queue);
+size_t queue_size(Queue *queue);

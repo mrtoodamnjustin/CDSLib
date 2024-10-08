@@ -11,27 +11,27 @@ int main(int argc, char **argv)
     return 1;
   }
 
-  Stack *stack = createStack(sizeof(int));
+  Stack *stack = stack_create(sizeof(int));
 
   for (int i = 1; i < argc; i++)
   {
-    pushStack(stack, &(int){atoi(argv[i])});
+    stack_push(stack, &(int){atoi(argv[i])});
   }
 
   printf("Lets flush your stack!\n");
 
-  while (!isEmptyStack(stack))
+  while (!stack_is_empty(stack))
   {
-    printf("Current number of elements: %d\n", sizeStack(stack));
+    printf("Current number of elements: %d\n", stack_size(stack));
 
-    int *popped = popStack(stack);
+    int *popped = stack_pop(stack);
     printf("Popped %d\n\n", *popped);
     free(popped);
   }
 
   printf("No elements are left!\n");
 
-  destroyStack(stack);
+  stack_destroy(stack);
 
   return 0;
 }

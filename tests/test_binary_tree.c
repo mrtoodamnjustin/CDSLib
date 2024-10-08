@@ -39,9 +39,9 @@ void post_order(btNode *head, void (*func)(void *data))
 
 int main()
 {
-  btNode *node1 = createNode(&(int){7}, sizeof(int));
-  btNode *node2 = createNode(&(int){3}, sizeof(int));
-  btNode *node3 = createNode(&(int){9}, sizeof(int));
+  btNode *node1 = bt_create_node(&(int){7}, sizeof(int));
+  btNode *node2 = bt_create_node(&(int){3}, sizeof(int));
+  btNode *node3 = bt_create_node(&(int){9}, sizeof(int));
 
   node1->left = node2;
   node1->right = node3;

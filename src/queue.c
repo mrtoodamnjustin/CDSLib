@@ -12,7 +12,7 @@
 //   size_t capacity;
 // } Queue;
 
-Queue *createQueue(size_t element_size)
+Queue *queue_create(size_t element_size)
 {
   Queue *result = malloc(sizeof(Queue));
 
@@ -25,7 +25,7 @@ Queue *createQueue(size_t element_size)
   return result;
 }
 
-void pushQueue(Queue *queue, void *element)
+void queue_push(Queue *queue, void *element)
 {
   void *newElement = malloc(queue->element_size);
 
@@ -49,9 +49,9 @@ void pushQueue(Queue *queue, void *element)
   queue->data[queue->size++] = newElement;
 }
 
-void *popQueue(Queue *queue)
+void *queue_pop(Queue *queue)
 {
-  if (isEmptyQueue(queue))
+  if (queue_is_empty(queue))
     return NULL;
 
   void *popped = queue->data[0];
@@ -87,7 +87,7 @@ void *popQueue(Queue *queue)
   return popped;
 }
 
-void clearQueue(Queue *queue)
+void queue_clear(Queue *queue)
 {
   for (size_t i = 0; i < queue->size; i++)
   {
@@ -99,12 +99,12 @@ void clearQueue(Queue *queue)
   queue->size = 0;
 }
 
-int isEmptyQueue(Queue *queue)
+int queue_is_empty(Queue *queue)
 {
   return queue->size == 0;
 }
 
-size_t sizeQueue(Queue *queue)
+size_t queue_size(Queue *queue)
 {
   return queue->size;
 }

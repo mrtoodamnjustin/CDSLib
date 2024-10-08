@@ -9,7 +9,7 @@
 //   Node *next;
 // } Node;
 
-Node *createLinkedList(size_t total_elements, size_t element_size)
+Node *ll_create(size_t total_elements, size_t element_size)
 {
   Node *HEAD = malloc(sizeof(Node));
 
@@ -28,7 +28,7 @@ Node *createLinkedList(size_t total_elements, size_t element_size)
   return HEAD;
 }
 
-void freeLinkedList(Node *HEAD)
+void ll_free(Node *HEAD)
 {
   Node *currentNode = HEAD;
   Node *nextNode;
@@ -42,7 +42,7 @@ void freeLinkedList(Node *HEAD)
   }
 }
 
-void displayLinkedList(Node *HEAD, void (*display)(void *), char *seperator)
+void ll_display(Node *HEAD, void (*display)(void *), char *seperator)
 {
   Node *currentNode = HEAD;
 
